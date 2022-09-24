@@ -10,7 +10,6 @@ function findRotatedIndex(arr: number[], num: number): number {
 
   //const idx = sorted.findIndex((n) => n === num);
   const idx = findIndex(sorted, num);
-  console.log(`idx of ${num}: ${idx}`);
 
   return idx < 0
     ? idx
