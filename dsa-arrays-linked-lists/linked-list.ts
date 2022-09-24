@@ -40,7 +40,16 @@ class LinkedList {
 
   /** unshift(val): add new value to start of list. */
 
-  unshift(val) {}
+  unshift(val) {
+    const node = new Node(val);
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    }
+    node.next = this.head;
+    this.head = node;
+    this.length++;
+  }
 
   /** pop(): return & remove last item. */
 
