@@ -56,7 +56,9 @@ class Queue {
 
   /** isEmpty(): return true if the queue is empty, otherwise false */
 
-  isEmpty() {}
+  isEmpty(): boolean {
+    return this.first ? false : true;
+  }
 }
 
 export default Queue;
