@@ -40,7 +40,13 @@ class Queue {
   /** dequeue(): remove the node from the start of the queue
    * and return its value. Should throw an error if the queue is empty. */
 
-  dequeue() {}
+  dequeue() {
+    const node = this.first;
+    if (!node) throw Error("Queue is empty");
+    this.first = node.next;
+    this.size--;
+    return node.val;
+  }
 
   /** peek(): return the value of the first node in the queue. */
 
