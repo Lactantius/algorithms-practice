@@ -1,6 +1,9 @@
 /** Node: node for a singly linked list. */
 
 class Node {
+  val: any;
+  next: Node | null;
+
   constructor(val) {
     this.val = val;
     this.next = null;
@@ -10,6 +13,10 @@ class Node {
 /** LinkedList: chained together nodes. */
 
 class LinkedList {
+  head: Node | null;
+  tail: Node | null;
+  length: number;
+
   constructor(vals = []) {
     this.head = null;
     this.tail = null;
@@ -20,57 +27,39 @@ class LinkedList {
 
   /** push(val): add new value to end of list. */
 
-  push(val) {
-
-  }
+  push(val) {}
 
   /** unshift(val): add new value to start of list. */
 
-  unshift(val) {
-
-  }
+  unshift(val) {}
 
   /** pop(): return & remove last item. */
 
-  pop() {
-
-  }
+  pop() {}
 
   /** shift(): return & remove first item. */
 
-  shift() {
-
-  }
+  shift() {}
 
   /** getAt(idx): get val at idx. */
 
-  getAt(idx) {
-
-  }
+  getAt(idx) {}
 
   /** setAt(idx, val): set val at idx to val */
 
-  setAt(idx, val) {
-
-  }
+  setAt(idx, val) {}
 
   /** insertAt(idx, val): add node w/val before idx. */
 
-  insertAt(idx, val) {
-
-  }
+  insertAt(idx, val) {}
 
   /** removeAt(idx): return & remove item at idx, */
 
-  removeAt(idx) {
-
-  }
+  removeAt(idx) {}
 
   /** average(): return an average of all values in the list */
 
-  average() {
-    
-  }
+  average() {}
 }
 
-module.exports = LinkedList;
+export default LinkedList;
