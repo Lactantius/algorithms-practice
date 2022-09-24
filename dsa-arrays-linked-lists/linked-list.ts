@@ -27,7 +27,7 @@ class LinkedList {
 
   /** push(val): add new value to end of list. */
 
-  push(val) {
+  push(val): void {
     const node = new Node(val);
     if (!this.head) {
       this.head = node;
@@ -40,7 +40,7 @@ class LinkedList {
 
   /** unshift(val): add new value to start of list. */
 
-  unshift(val) {
+  unshift(val): void {
     const node = new Node(val);
     if (!this.head) {
       this.head = node;
@@ -53,15 +53,44 @@ class LinkedList {
 
   /** pop(): return & remove last item. */
 
-  pop() {}
+  pop(): any {
+    const node = this.tail;
+    let prev = this.head;
+    for (let i = 1; i < this.length - 1; i++) {
+      prev = prev.next;
+    }
+    this.tail = prev;
+    prev.next = null;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return node.val;
+  }
 
   /** shift(): return & remove first item. */
 
-  shift() {}
+  shift(): any {
+    const node = this.head;
+    this.head = node.next;
+    this.length--;
+    if (this.length === 0) {
+      this.head = null;
+      this.tail = null;
+    }
+    return node.val;
+  }
 
   /** getAt(idx): get val at idx. */
 
-  getAt(idx) {}
+  getAt(idx: number): any {
+    let node = this.head;
+    for (let i = 0; i < idx; i++) {
+      node = node.next;
+    }
+    return node.val;
+  }
 
   /** setAt(idx, val): set val at idx to val */
 
