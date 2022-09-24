@@ -94,19 +94,66 @@ class LinkedList {
 
   /** setAt(idx, val): set val at idx to val */
 
-  setAt(idx, val) {}
+  setAt(idx: number, val: any): void {
+    let node = this.head;
+    for (let i = 0; i < idx; i++) {
+      node = node.next;
+    }
+    node.val = val;
+  }
 
   /** insertAt(idx, val): add node w/val before idx. */
 
-  insertAt(idx, val) {}
+  insertAt(idx: number, val: any): void {
+    if (this.length === 0 || this.length === idx) {
+      this.push(val);
+      return;
+    }
+    const node = new Node(val);
+    let prev = this.head;
+    for (let i = 0; i < idx - 1; i++) {
+      prev = prev.next;
+    }
+    console.log(prev);
+    node.next = prev.next;
+    prev.next = node;
+    this.length++;
+  }
 
   /** removeAt(idx): return & remove item at idx, */
 
-  removeAt(idx) {}
-
+  removeAt(idx: number): any {
+    if (this.length === 1 || this.length === idx) {
+      this.pop();
+      return;
+    }
+    let prev = this.head;
+    for (let i = 0; i < idx - 1; i++) {
+      prev = prev.next;
+    }
+    const node = prev.next;
+    prev.next = prev.next.next;
+    this.length--;
+    return node.val;
+  }
   /** average(): return an average of all values in the list */
 
-  average() {}
+  average(): number {
+    if (this.length === 0) return 0;
+    const vals: number[] = [];
+    let node = this.head;
+    for (let i = 0; i < this.length; i++) {
+      if (typeof node.val === "number") {
+        vals.push(node.val)
+      }
+      node = node.next;
+    }
+    return vals.reduce((acc, n) => acc + n, 0) / this.length;
+  }
+
 }
+
+
+
 
 export default LinkedList;
