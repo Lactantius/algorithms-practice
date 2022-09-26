@@ -33,13 +33,13 @@ class BinaryTreeNode {
   }
 
   // https://sbcommunity-sec.slack.com/archives/CRLSRTLBD/p1621635221036500?thread_ts=1621600294.018700&cid=CRLSRTLBD
-  maxPath(max = 0): number[] {
-    const left = this.left ? this.left.maxPath(max)[0] : 0;
-    const right = this.right ? this.right.maxPath(max)[0] : 0;
-    return [
-      Math.max(left + this.val, right + this.val),
-      Math.max(left + right + this.val),
-    ];
+  maxPath(): { greaterPath: number; bothPaths: number } {
+    const left = this.left ? this.left.maxPath().greaterPath : 0;
+    const right = this.right ? this.right.maxPath().greaterPath : 0;
+    return {
+      greaterPath: Math.max(left + this.val, right + this.val),
+      bothPaths: left + right + this.val,
+    };
   }
 
   findSmallest(filter: Function): number {
@@ -75,7 +75,7 @@ class BinaryTree {
    * The path doesn't need to start at the root, but you can't visit a node more than once. */
 
   maxSum(): number {
-    return this.root ? this.root.maxPath()[1] : 0;
+    return this.root ? this.root.maxPath().bothPaths : 0;
   }
 
   /** nextLarger(lowerBound): return the smallest value in the tree
