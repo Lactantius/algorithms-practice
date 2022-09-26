@@ -52,7 +52,11 @@ class Tree {
   /** numGreater(lowerBound): return a count of the number of nodes
    * whose value is greater than lowerBound. */
 
-  numGreater(lowerBound: number) {}
+  numGreater(lowerBound: number): number {
+    return this.root
+      ? this.root.countChildren((node) => node.val > lowerBound)
+      : 0;
+  }
 }
 
 export { Tree, TreeNode };
