@@ -1,3 +1,5 @@
+import averagePair from "./average-pair";
+
 describe("averagePair", function () {
   it("should return true if an average pair exists", function () {
     expect(averagePair([1, 2, 3], 2.5)).toBe(true);
