@@ -22,3 +22,4 @@ function frequencyCounter(str: string): Map<string, number> {
 }
 
 export default constructNote;
+export { frequencyCounter };
